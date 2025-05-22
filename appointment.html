@@ -51,10 +51,10 @@
         <div class="row gx-0 align-items-center" style="height: 45px;">
             <div class="col-lg-8 text-center text-lg-start mb-lg-0">
                 <div class="d-flex flex-wrap">
-                    <a href="#" class="text-light me-4"><i class="fas fa-map-marker-alt text-primary me-2"></i>307, 3rd floorPink City2, Joshi Marg,
-                            Jhotwara, Jaipur, Rajasthan 302012</a>
-                    <a href="tel:7073734854" class="text-light me-4"><i
-                            class="fas fa-phone-alt text-primary me-2"></i>+9170737-34854</a>
+                    <!-- <a href="#" class="text-light me-4"><i class="fas fa-map-marker-alt text-primary me-2"></i>307, 3rd
+                        floorPink City2, Joshi Marg,
+                        Jhotwara, Jaipur, Rajasthan 302012</a> -->
+                    <a href="tel:7073734854" class="text-light me-4"><i style="color: #15b9d9;" class="fa-solid fa-phone"></i>+9170737-34854</a>
                     <a href="mailto:info@jdbinfotech.co.in" class="text-light me-0"><i
                             class="fas fa-envelope text-primary me-2"></i>info@jdbinfotech.co.in</a>
                 </div>
@@ -191,49 +191,49 @@
                     <div class="appointment-form rounded p-5">
                         <p class="fs-4 text-uppercase text-primary">Get In Touch</p>
                         <h1 class="display-5 mb-4">Get Appointment</h1>
-                        <form>
+                        <form id="contact-form">
                             <div class="row gy-3 gx-4">
                                 <div class="col-xl-6">
-                                    <input type="text"
+                                    <input required name="user_name" type="text"
                                         class="form-control py-3 border-primary bg-transparent text-white"
                                         placeholder="First Name">
                                 </div>
                                 <div class="col-xl-6">
-                                    <input type="email"
+                                    <input required name="user_email" type="email"
                                         class="form-control py-3 border-primary bg-transparent text-white"
                                         placeholder="Email">
                                 </div>
                                 <div class="col-xl-6">
-                                    <input type="phone" class="form-control py-3 border-primary bg-transparent"
+                                    <input required name="user_mobile" type="phone" class="form-control py-3 border-primary bg-transparent"
                                         placeholder="Phone">
                                 </div>
                                 <div class="col-xl-6">
-                                    <select class="form-select py-3 border-primary bg-transparent"
+                                    <select required name="user_gender" class="form-select py-3 border-primary bg-transparent"
                                         aria-label="Default select example">
-                                        <option selected>Your Gender</option>
-                                        <option value="1">Male</option>
-                                        <option value="2">FeMale</option>
-                                        <option value="3">Others</option>
+                                        <option disabled selected>Your Gender</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">FeMale</option>
+                                        <option value="Other">Others</option>
                                     </select>
                                 </div>
                                 <div class="col-xl-6">
-                                    <input type="date" class="form-control py-3 border-primary bg-transparent">
+                                    <input required name="user_date" type="date" class="form-control py-3 border-primary bg-transparent">
                                 </div>
                                 <div class="col-xl-6">
-                                    <select class="form-select py-3 border-primary bg-transparent"
+                                    <select required name="user_product" class="form-select py-3 border-primary bg-transparent"
                                         aria-label="Default select example">
-                                        <option selected>Department</option>
-                                        <option value="1">Physiotherapy</option>
-                                        <option value="2">Physical Helth</option>
-                                        <option value="2">Treatments</option>
+                                        <option disabled selected>Department</option>
+                                        <option value="Physiotherapy">Physiotherapy</option>
+                                        <option value="Physical Helth">Physical Helth</option>
+                                        <option value="Treatments">Treatments</option>
                                     </select>
                                 </div>
                                 <div class="col-12">
-                                    <textarea class="form-control border-primary bg-transparent text-white" name="text"
+                                    <textarea required class="form-control border-primary bg-transparent text-white" name="message"
                                         id="area-text" cols="30" rows="5" placeholder="Write Comments"></textarea>
                                 </div>
                                 <div class="col-12">
-                                    <button type="button" class="btn btn-primary text-white w-100 py-3 px-5">SUBMIT
+                                    <button type="submit" class="btn btn-primary text-white w-100 py-3 px-5">SUBMIT
                                         NOW</button>
                                 </div>
                             </div>
@@ -330,7 +330,7 @@
         <div class="container">
             <div class="row g-4 justify-content-center align-items-center">
                 <div class="col-md-12 text-center text-md-start mb-md-0">
-                    <span class="text-white"><a href="#">&copy; Pioneer Methodical Pvt Ltd</a>, All right reserved By
+                    <span class="text-white"><a href="#">&copy; Pioneer Methodical Pvt Ltd</a>, All rights reserved. designed By
                         JDB Infotech</span>
                 </div>
 
@@ -358,6 +358,31 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <!-- emailjs setup  -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  (function() {
+    emailjs.init("Cfyr6BQsigjxk-MSH"); // Replace with your EmailJS user ID
+  })();
+
+  document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    emailjs.sendForm("service_r1fy952", "template_tqu8o6m", this)
+      .then(function() {
+        alert("Message sent successfully! We Call Back Little Later.");
+         setTimeout(() => {
+                        window.location.reload()
+                    }, 1000)
+      }, function(error) {
+        alert("Failed to send: " + JSON.stringify(error));
+         setTimeout(() => {
+                        window.location.reload()
+                    }, 1000)
+      });
+  });
+</script>
 
 </body>
 

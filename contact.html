@@ -50,11 +50,11 @@
    <div class="container-fluid bg-dark px-5 d-none d-lg-block">
         <div class="row gx-0 align-items-center" style="height: 45px;">
             <div class="col-lg-8 text-center text-lg-start mb-lg-0">
-                <div class="d-flex flex-wrap">
-                    <a href="#" class="text-light me-4"><i class="fas fa-map-marker-alt text-primary me-2"></i>307, 3rd floorPink City2, Joshi Marg,
-                            Jhotwara, Jaipur, Rajasthan 302012</a>
-                    <a href="tel:7073734854" class="text-light me-4"><i
-                            class="fas fa-phone-alt text-primary me-2"></i>+9170737-34854</a>
+               <div class="d-flex flex-wrap">
+                    <!-- <a href="#" class="text-light me-4"><i class="fas fa-map-marker-alt text-primary me-2"></i>307, 3rd
+                        floorPink City2, Joshi Marg,
+                        Jhotwara, Jaipur, Rajasthan 302012</a> -->
+                    <a href="tel:7073734854" class="text-light me-4"><i style="color: #15b9d9;" class="fa-solid fa-phone"></i>+9170737-34854</a>
                     <a href="mailto:info@jdbinfotech.co.in" class="text-light me-0"><i
                             class="fas fa-envelope text-primary me-2"></i>info@jdbinfotech.co.in</a>
                 </div>
@@ -146,53 +146,53 @@
                         contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code
                         and you're done. <a class="text-dark fw-bold" href="#">Download
                             Now</a>.</p>
-                    <form>
+                    <form id="contact-form">
                         <div class="row g-3">
                             <div class="col-lg-12 col-xl-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control bg-transparent border border-white" id="name"
+                                    <input required name="user_name" type="text" class="form-control bg-transparent border border-white" id="name"
                                         placeholder="Your Name">
                                     <label for="name">Your Name</label>
                                 </div>
                             </div>
                             <div class="col-lg-12 col-xl-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control bg-transparent border border-white"
+                                    <input required name="user_email" type="email" class="form-control bg-transparent border border-white"
                                         id="email" placeholder="Your Email">
                                     <label for="email">Your Email</label>
                                 </div>
                             </div>
                             <div class="col-lg-12 col-xl-6">
                                 <div class="form-floating">
-                                    <input type="phone" class="form-control bg-transparent border border-white"
+                                    <input required name="user_mobile" type="phone" class="form-control bg-transparent border border-white"
                                         id="phone" placeholder="Phone">
                                     <label for="phone">Your Phone</label>
                                 </div>
                             </div>
                             <div class="col-lg-12 col-xl-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control bg-transparent border border-white"
+                                    <input required name="user_subject" type="text" class="form-control bg-transparent border border-white"
                                         id="project" placeholder="Project">
-                                    <label for="project">Your Project</label>
+                                    <label for="project">Subject</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control bg-transparent border border-white"
+                                    <input required name="user_product" type="text" class="form-control bg-transparent border border-white"
                                         id="subject" placeholder="Subject">
-                                    <label for="subject">Subject</label>
+                                    <label for="subject">Your Products</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control bg-transparent border border-white"
+                                    <textarea required name="message" class="form-control bg-transparent border border-white"
                                         placeholder="Leave a message here" id="message"
                                         style="height: 160px"></textarea>
                                     <label for="message">Message</label>
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-light text-primary w-100 py-3">Send Message</button>
+                                <button type="submit" class="btn btn-light text-primary w-100 py-3">Send Message</button>
                             </div>
                         </div>
                     </form>
@@ -316,7 +316,7 @@
         <div class="container">
             <div class="row g-4 justify-content-center align-items-center">
                 <div class="col-md-12 text-center text-md-start mb-md-0">
-                    <span class="text-white"><a href="#">&copy; Pioneer Methodical Pvt Ltd</a>, All right reserved By
+                    <span class="text-white"><a href="#">&copy; Pioneer Methodical Pvt Ltd</a>, All rights reserved. designed By
                         JDB Infotech</span>
                 </div>
 
@@ -344,6 +344,31 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <!-- emailjs setup  -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  (function() {
+    emailjs.init("Cfyr6BQsigjxk-MSH"); // Replace with your EmailJS user ID
+  })();
+
+  document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    emailjs.sendForm("service_r1fy952", "template_tqu8o6m", this)
+      .then(function() {
+        alert("Message sent successfully! We Call Back Little Later.");
+         setTimeout(() => {
+                        window.location.reload()
+                    }, 2000)
+      }, function(error) {
+        alert("Failed to send: " + JSON.stringify(error));
+         setTimeout(() => {
+                        window.location.reload()
+                    }, 2000)
+      });
+  });
+</script>
 
 </body>
 

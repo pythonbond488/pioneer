@@ -51,10 +51,11 @@
         <div class="row gx-0 align-items-center" style="height: 45px;">
             <div class="col-lg-8 text-center text-lg-start mb-lg-0">
                 <div class="d-flex flex-wrap">
-                    <a href="#" class="text-light me-4"><i class="fas fa-map-marker-alt text-primary me-2"></i>307, 3rd floorPink City2, Joshi Marg,
-                            Jhotwara, Jaipur, Rajasthan 302012</a>
-                    <a href="tel:7073734854" class="text-light me-4"><i
-                            class="fas fa-phone-alt text-primary me-2"></i>+9170737-34854</a>
+                    <!-- <a href="#" class="text-light me-4"><i class="fas fa-map-marker-alt text-primary me-2"></i>307, 3rd
+                        floorPink City2, Joshi Marg,
+                        Jhotwara, Jaipur, Rajasthan 302012</a> -->
+                    <a href="tel:7073734854" class="text-light me-4"><i style="color: #15b9d9;"
+                            class="fa-solid fa-phone"></i>+9170737-34854</a>
                     <a href="mailto:info@jdbinfotech.co.in" class="text-light me-0"><i
                             class="fas fa-envelope text-primary me-2"></i>info@jdbinfotech.co.in</a>
                 </div>
@@ -186,13 +187,12 @@
                 <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="service-item rounded">
                         <div class="service-img rounded-top">
-                            <img src="./img/xrayimage.jpg" class="img-fluid rounded-top w-100" alt="">
+                            <img src="./img/gammacamera.jpg" class="img-fluid rounded-top w-100" alt="">
                         </div>
                         <div class="service-content rounded-bottom bg-light p-4">
                             <div class="service-content-inner">
-                                <h5 class="mb-4">X-Ray Machine</h5>
-                                <p class="mb-4">X-Ray captures images of bones and internal structures quickly using
-                                    low-dose radiation for accurate diagnosis.</p>
+                                <h5 class="mb-4">Gamma Camera</h5>
+                                <p class="mb-4">A gamma camera is a medical imaging device that detects radiation from injected radioactive tracers.</p>
                                 <a href="./product.html"
                                     class="btn btn-primary rounded-pill text-white py-2 px-4 mb-2">Read More</a>
                             </div>
@@ -202,13 +202,13 @@
                 <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
                     <div class="service-item rounded">
                         <div class="service-img rounded-top">
-                            <img src="./img/ultrasound.jpg" class="img-fluid rounded-top w-100" alt="">
+                            <img src="./img/petctscan.jpg" class="img-fluid rounded-top w-100" alt="">
                         </div>
                         <div class="service-content rounded-bottom bg-light p-4">
                             <div class="service-content-inner">
-                                <h5 class="mb-4">Ultrasound</h5>
-                                <p class="mb-4">Ultrasound uses sound waves to visualize organs, tissues, and fetal
-                                    development in a safe, radiation-free way.</p>
+                                <h5 class="mb-4">PET CT Scanner</h5>
+                                <p class="mb-4">A PET CT scanner is an advanced imaging device that shows internal body
+                                    functions and structures clearly.</p>
                                 <a href="./product.html"
                                     class="btn btn-primary rounded-pill text-white py-2 px-4 mb-2">Read More</a>
                             </div>
@@ -537,49 +537,52 @@
                     <div class="appointment-form rounded p-5">
                         <p class="fs-4 text-uppercase text-primary">Get In Touch</p>
                         <h1 class="display-5 mb-4">Get Appointment</h1>
-                        <form>
+                        <form id="contact-form">
                             <div class="row gy-3 gx-4">
                                 <div class="col-xl-6">
-                                    <input type="text"
+                                    <input required type="text" name="user_name"
                                         class="form-control py-3 border-primary bg-transparent text-white"
                                         placeholder="First Name">
                                 </div>
                                 <div class="col-xl-6">
-                                    <input type="email"
+                                    <input required type="email" name="user_email"
                                         class="form-control py-3 border-primary bg-transparent text-white"
                                         placeholder="Email">
                                 </div>
                                 <div class="col-xl-6">
-                                    <input type="phone" class="form-control py-3 border-primary bg-transparent"
-                                        placeholder="Phone">
+                                    <input required name="user_mobile" type="phone"
+                                        class="form-control py-3 border-primary bg-transparent" placeholder="Phone">
                                 </div>
                                 <div class="col-xl-6">
-                                    <select class="form-select py-3 border-primary bg-transparent"
+                                    <select required name="user_gender"
+                                        class="form-select py-3 border-primary bg-transparent"
                                         aria-label="Default select example">
-                                        <option selected>Your Gender</option>
+                                        <option disabled selected>Your Gender</option>
                                         <option value="1">Male</option>
                                         <option value="2">FeMale</option>
                                         <option value="3">Others</option>
                                     </select>
                                 </div>
                                 <div class="col-xl-6">
-                                    <input type="date" class="form-control py-3 border-primary bg-transparent">
+                                    <input required type="date" class="form-control py-3 border-primary bg-transparent">
                                 </div>
                                 <div class="col-xl-6">
-                                    <select class="form-select py-3 border-primary bg-transparent"
+                                    <select required name="user_department"
+                                        class="form-select py-3 border-primary bg-transparent"
                                         aria-label="Default select example">
-                                        <option selected>Department</option>
+                                        <option disabled selected>Department</option>
                                         <option value="1">Physiotherapy</option>
                                         <option value="2">Physical Helth</option>
                                         <option value="2">Treatments</option>
                                     </select>
                                 </div>
                                 <div class="col-12">
-                                    <textarea class="form-control border-primary bg-transparent text-white" name="text"
-                                        id="area-text" cols="30" rows="5" placeholder="Write Comments"></textarea>
+                                    <textarea required class="form-control border-primary bg-transparent text-white"
+                                        name="message" id="area-text" cols="30" rows="5"
+                                        placeholder="Write Comments"></textarea>
                                 </div>
                                 <div class="col-12">
-                                    <button type="button" class="btn btn-primary text-white w-100 py-3 px-5">SUBMIT
+                                    <button type="submit" class="btn btn-primary text-white w-100 py-3 px-5">SUBMIT
                                         NOW</button>
                                 </div>
                             </div>
@@ -714,7 +717,7 @@
 
 
     <!-- Testimonial Start -->
-     <div class="container-fluid testimonial py-5 wow zoomInDown" data-wow-delay="0.1s">
+    <div class="container-fluid testimonial py-5 wow zoomInDown" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="section-title mb-5">
                 <div class="sub-style">
@@ -728,7 +731,8 @@
                         <div class="testimonial-inner-img mb-4">
                             <img src="img/testimonial-img.jpg" class="img-fluid rounded-circle" alt="">
                         </div>
-                        <p class="text-white fs-7">“Exceptional service, timely delivery, and outstanding quality. Highly recommend to anyone seeking professionalism and reliability in every project.”
+                        <p class="text-white fs-7">“Exceptional service, timely delivery, and outstanding quality.
+                            Highly recommend to anyone seeking professionalism and reliability in every project.”
                         </p>
                         <div class="text-center">
                             <h5 class="mb-2">Milli Carter</h5>
@@ -748,7 +752,8 @@
                         <div class="testimonial-inner-img mb-4">
                             <img src="img/testimonial-img.jpg" class="img-fluid rounded-circle" alt="">
                         </div>
-                        <p class="text-white fs-7">“Top-notch quality and excellent customer support. They exceeded expectations and made the entire process smooth and enjoyable from day one.”
+                        <p class="text-white fs-7">“Top-notch quality and excellent customer support. They exceeded
+                            expectations and made the entire process smooth and enjoyable from day one.”
                         </p>
                         <div class="text-center">
                             <h5 class="mb-2">Jelly Watson</h5>
@@ -768,7 +773,8 @@
                         <div class="testimonial-inner-img mb-4">
                             <img src="img/testimonial-img.jpg" class="img-fluid rounded-circle" alt="">
                         </div>
-                        <p class="text-white fs-7">“Amazing experience from start to finish. The team was responsive, skilled, and truly cared about delivering great results.”
+                        <p class="text-white fs-7">“Amazing experience from start to finish. The team was responsive,
+                            skilled, and truly cared about delivering great results.”
                         </p>
                         <div class="text-center">
                             <h5 class="mb-2">Bella Fox</h5>
@@ -931,12 +937,12 @@
         </div>
     </div>
     <!-- Footer End -->
-      <!-- Copyright Start -->
+    <!-- Copyright Start -->
     <div class="container-fluid copyright py-4">
         <div class="container">
             <div class="row g-4 justify-content-center align-items-center">
                 <div class="col-md-12 text-center text-md-start mb-md-0">
-                    <span class="text-white"><a href="#">&copy; Pioneer Methodical Pvt Ltd</a>, All right reserved By
+                    <span class="text-white"><a href="#">&copy; Pioneer Methodical Pvt Ltd</a>, All rights reserved. designed By
                         JDB Infotech</span>
                 </div>
 
@@ -948,7 +954,7 @@
     <a class="watsup-btn" href="https://api.whatsapp.com/send?phone=7073734854"><i
             class="fa-brands fa-whatsapp"></i></a>
 
-   
+
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-primary btn-lg-square back-to-top"><i class="fa fa-arrow-up"></i></a>
@@ -965,6 +971,31 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <!-- emailjs setup  -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function () {
+            emailjs.init("Cfyr6BQsigjxk-MSH"); // Replace with your EmailJS user ID
+        })();
+
+        document.getElementById("contact-form").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            emailjs.sendForm("service_r1fy952", "template_tqu8o6m", this)
+                .then(function () {
+                    alert("Message sent successfully! We Call Back Little Later.");
+                    setTimeout(() => {
+                        window.location.reload()
+                    }, 2000)
+                }, function (error) {
+                    alert("Failed to send: " + JSON.stringify(error));
+                    setTimeout(() => {
+                        window.location.reload()
+                    }, 2000)
+                });
+        });
+    </script>
 
 </body>
 
